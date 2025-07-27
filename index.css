@@ -24,7 +24,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    padding: 0 40px;
+    padding: 0 60px;
     border: none;
     outline: none;
     margin: 0;
@@ -73,7 +73,7 @@ body {
 
 .portfolio-btn:hover {
     background-color: #f0f0f0;
-    transform: translateY(-2px);
+    opacity: 0.8;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
@@ -117,7 +117,7 @@ body {
 .content {
     padding: 40px 60px;
     width: 100%;
-    background-color: #000;
+    background: linear-gradient(180deg, #000 0%, #1a0f2e 75%, #220933 100%);
     color: white;
     box-sizing: border-box;
     overflow-x: hidden;
@@ -154,7 +154,8 @@ body {
 .tech-buttons {
     display: grid;
     grid-template-columns: repeat(6, 1fr);
-    gap: 5px;
+    grid-template-rows: repeat(3, 1fr);
+    gap: 4px;
     margin-bottom: 40px;
     max-width: 100%;
 }
@@ -163,7 +164,7 @@ body {
     background-color: #351771;
     color: white;
     border: 2px solid transparent;
-    padding: 12px 8px;
+    padding: 18px 8px;
     font-size: clamp(0.75rem, 1.5vw, 0.9rem);
     font-weight: 500;
     font-family: 'Montserrat', sans-serif;
@@ -287,7 +288,8 @@ body {
     }
 
     .tech-buttons {
-        grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: auto;
         gap: 8px;
     }
 
@@ -355,6 +357,6 @@ body {
 /* Very small mobile styles */
 @media (max-width: 360px) {
     .tech-buttons {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(3, 1fr);
     }
 }
