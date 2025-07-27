@@ -29,29 +29,81 @@
         <div class="tech-stack-section">
             <h3>Sort Projects by Tech Stack</h3>
             <div class="tech-buttons">
-                <button class="tech-btn">JavaScript</button>
-                <button class="tech-btn">Python</button>
-                <button class="tech-btn">Java</button>
-                <button class="tech-btn">C++</button>
-                <button class="tech-btn">React</button>
-                <button class="tech-btn">Node.js</button>
+                <button class="tech-btn" onclick="toggleSelection(this)">JavaScript</button>
+                <button class="tech-btn" onclick="toggleSelection(this)">Python</button>
+                <button class="tech-btn" onclick="toggleSelection(this)">Java</button>
+                <button class="tech-btn" onclick="toggleSelection(this)">C++</button>
+                <button class="tech-btn" onclick="toggleSelection(this)">React</button>
+                <button class="tech-btn" onclick="toggleSelection(this)">Node.js</button>
 
-                <button class="tech-btn">HTML/CSS</button>
-                <button class="tech-btn">SQL</button>
-                <button class="tech-btn">TypeScript</button>
-                <button class="tech-btn">C#</button>
-                <button class="tech-btn">PHP</button>
-                <button class="tech-btn">Go</button>
+                <button class="tech-btn" onclick="toggleSelection(this)">HTML/CSS</button>
+                <button class="tech-btn" onclick="toggleSelection(this)">SQL</button>
+                <button class="tech-btn" onclick="toggleSelection(this)">TypeScript</button>
+                <button class="tech-btn" onclick="toggleSelection(this)">C#</button>
+                <button class="tech-btn" onclick="toggleSelection(this)">PHP</button>
+                <button class="tech-btn" onclick="toggleSelection(this)">Go</button>
 
-                <button class="tech-btn">Rust</button>
-                <button class="tech-btn">Ruby</button>
-                <button class="tech-btn">Kotlin</button>
-                <button class="tech-btn">Scala</button>
-                <button class="tech-btn">R</button>
-                <button class="tech-btn">VB.NET</button>
+                <button class="tech-btn" onclick="toggleSelection(this)">Rust</button>
+                <button class="tech-btn" onclick="toggleSelection(this)">Ruby</button>
+                <button class="tech-btn" onclick="toggleSelection(this)">Kotlin</button>
+                <button class="tech-btn" onclick="toggleSelection(this)">Scala</button>
+                <button class="tech-btn" onclick="toggleSelection(this)">R</button>
+                <button class="tech-btn" onclick="toggleSelection(this)">VB.NET</button>
+            </div>
+        </div>
+
+        <div class="projects-section">
+            <div class="projects-grid">
+                <div class="project-card">
+                    <h4 class="project-title">Project One</h4>
+                    <p class="project-description">A comprehensive web application built with modern technologies for
+                        data visualization and user interaction.</p>
+                    <div class="project-tech">React • Node.js • MongoDB</div>
+                </div>
+
+                <div class="project-card">
+                    <h4 class="project-title">Project Two</h4>
+                    <p class="project-description">Mobile-first responsive design with advanced animations and smooth
+                        user experience.</p>
+                    <div class="project-tech">JavaScript • HTML/CSS • Python</div>
+                </div>
+
+                <div class="project-card">
+                    <h4 class="project-title">Project Three</h4>
+                    <p class="project-description">Full-stack development project featuring real-time data processing
+                        and API integration.</p>
+                    <div class="project-tech">Java • Spring • SQL</div>
+                </div>
+
+                <div class="project-card">
+                    <h4 class="project-title">Project Four</h4>
+                    <p class="project-description">Machine learning application with intuitive interface and powerful
+                        backend algorithms.</p>
+                    <div class="project-tech">Python • TensorFlow • Flask</div>
+                </div>
+
+                <div class="project-card">
+                    <h4 class="project-title">Project Five</h4>
+                    <p class="project-description">Cross-platform mobile application with native performance and modern
+                        UI design.</p>
+                    <div class="project-tech">React Native • TypeScript • Firebase</div>
+                </div>
+
+                <div class="project-card">
+                    <h4 class="project-title">Project Six</h4>
+                    <p class="project-description">Cloud-based solution with scalable architecture and robust security
+                        features.</p>
+                    <div class="project-tech">AWS • Docker • Kubernetes</div>
+                </div>
             </div>
         </div>
     </main>
+
+    <script>
+        function toggleSelection(button) {
+            button.classList.toggle('selected');
+        }
+    </script>
 </body>
 
 </html>
