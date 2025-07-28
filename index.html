@@ -21,7 +21,8 @@
 
     <main class="content">
         <h2>Objective</h2>
-        <p>I am a recent computer science graduate from USC with a passion for software development and problem-solving. Seeking
+        <p>I am a recent computer science graduate from USC with a passion for software development and problem-solving.
+            Seeking
             opportunities to apply my technical skills and knowledge in a dynamic environment where I can contribute to
             innovative projects, continue learning, and grow as a developer. Looking for fast-paced, highly
             collaborative, and versatile opportunities.</p>
@@ -43,8 +44,8 @@
                 <button class="tech-btn" onclick="toggleSelection(this)">PHP</button>
                 <button class="tech-btn" onclick="toggleSelection(this)">Fusion 360</button>
 
-                <button class="tech-btn" onclick="toggleSelection(this)">TBD</button>
-                <button class="tech-btn" onclick="toggleSelection(this)">TBD</button>
+                <button class="tech-btn" onclick="toggleSelection(this)">TailwindCSS</button>
+                <button class="tech-btn" onclick="toggleSelection(this)">Vite</button>
                 <button class="tech-btn" onclick="toggleSelection(this)">TBD</button>
                 <button class="tech-btn" onclick="toggleSelection(this)">TBD</button>
                 <button class="tech-btn" onclick="toggleSelection(this)">TBD</button>
@@ -54,11 +55,13 @@
 
         <div class="projects-section">
             <div class="projects-grid">
-                <div class="project-card">
-                    <h4 class="project-title">Project One</h4>
-                    <p class="project-description">A comprehensive web application built with modern technologies for
-                        data visualization and user interaction.</p>
-                    <div class="project-tech">React • Node.js • MongoDB</div>
+                <div class="project-card" onclick="window.open('https://github.com/gjpark03/TaskTempo', '_blank')"
+                    style="cursor: pointer;">
+                    <h4 class="project-title">TaskTempo</h4>
+                    <p class="project-description">A modern web application for creating and managing custom intervals
+                        and time-based tasks. Features an intuitive interface for setting up personalized work intervals
+                        and productivity timers.</p>
+                    <div class="project-tech">React • TailwindCSS • PostgreSQL • Vite</div>
                 </div>
 
                 <div class="project-card">
@@ -102,6 +105,30 @@
     <script>
         function toggleSelection(button) {
             button.classList.toggle('selected');
+            filterProjects();
+        }
+
+        function filterProjects() {
+            const selectedButtons = document.querySelectorAll('.tech-btn.selected');
+            const projectCards = document.querySelectorAll('.project-card');
+
+            // Get all selected technologies
+            const selectedTechs = Array.from(selectedButtons).map(btn => btn.textContent.toLowerCase());
+
+            projectCards.forEach(card => {
+                const techStack = card.querySelector('.project-tech').textContent.toLowerCase();
+                let shouldShow = false;
+
+                if (selectedTechs.length === 0) {
+                    // If no buttons selected, show all projects
+                    shouldShow = true;
+                } else {
+                    // Check if any selected tech matches the project's tech stack
+                    shouldShow = selectedTechs.some(tech => techStack.includes(tech));
+                }
+
+                card.style.display = shouldShow ? 'block' : 'none';
+            });
         }
     </script>
 </body>
