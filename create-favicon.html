@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Favicon Generator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+            background-color: #f0f0f0;
+        }
+
+        canvas {
+            border: 1px solid #ccc;
+            margin: 10px;
+        }
+
+        .download-btn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px;
+            font-size: 14px;
+        }
+
+        .download-btn:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Favicon Generator - Dark Purple with "GP"</h1>
+    <p>Click the buttons below to download the favicon files:</p>
+
+    <div>
+        <canvas id="favicon16" width="16" height="16"></canvas>
+        <canvas id="favicon32" width="32" height="32"></canvas>
+        <canvas id="favicon180" width="180" height="180"></canvas>
+    </div>
+
+    <div>
+        <button class="download-btn" onclick="downloadCanvas('favicon16', 'favicon-16x16.png')">Download 16x16</button>
+        <button class="download-btn" onclick="downloadCanvas('favicon32', 'favicon-32x32.png')">Download 32x32</button>
+        <button class="download-btn" onclick="downloadCanvas('favicon180', 'apple-touch-icon.png')">Download
+            180x180</button>
+        <button class="download-btn" onclick="downloadIco()">Download .ico file</button>
+    </div>
+
+    <script>
+        function drawFavicon(canvasId, size) {
+            const canvas = document.getElementById(canvasId);
+            const ctx = canvas.getContext('2d');
+
+            // Dark purple background
+            ctx.fillStyle = '#220933';
+            ctx.fillRect(0, 0, size, size);
+
+            // Add a subtle gradient overlay
+            const gradient = ctx.createLinearGradient(0, 0, size, size);
+            gradient.addColorStop(0, 'rgba(53, 23, 113, 0.8)');
+            gradient.addColorStop(1, 'rgba(34, 9, 51, 0.8)');
+            ctx.fillStyle = gradient;
+            ctx.fillRect(0, 0, size, size);
+
+            // White text
+            ctx.fillStyle = '#ffffff';
+            ctx.font = `bold ${size * 0.6}px Arial, sans-serif`;
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+
+            // Add text shadow for better visibility
+            ctx.shadowColor = 'rgba(0, 0, 0, 0.5)';
+            ctx.shadowBlur = 2;
+            ctx.shadowOffsetX = 1;
+            ctx.shadowOffsetY = 1;
+
+            ctx.fillText('GP', size / 2, size / 2);
+
+            // Reset shadow
+            ctx.shadowColor = 'transparent';
+            ctx.shadowBlur = 0;
+            ctx.shadowOffsetX = 0;
+            ctx.shadowOffsetY = 0;
+        }
+
+        function downloadCanvas(canvasId, filename) {
+            const canvas = document.getElementById(canvasId);
+            const link = document.createElement('a');
+            link.download = filename;
+            link.href = canvas.toDataURL('image/png');
+            link.click();
+        }
+
+        function downloadIco() {
+            // For .ico file, we'll create a 32x32 version and download it
+            const canvas = document.getElementById('favicon32');
+            const link = document.createElement('a');
+            link.download = 'favicon.ico';
+            link.href = canvas.toDataURL('image/png');
+            link.click();
+        }
+
+        // Generate all favicon sizes
+        window.onload = function () {
+            drawFavicon('favicon16', 16);
+            drawFavicon('favicon32', 32);
+            drawFavicon('favicon180', 180);
+        };
+    </script>
+</body>
+
+</html>

@@ -360,3 +360,19 @@ body {
         grid-template-columns: repeat(3, 1fr);
     }
 }
+
+/* Footer styles */
+.footer {
+    background: linear-gradient(180deg, #220933 0%, #000 100%);
+    color: rgba(255, 255, 255, 0.7);
+    text-align: center;
+    padding: 30px 20px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: clamp(0.8rem, 1.5vw, 0.9rem);
+    font-weight: 400;
+}
+
+.footer p {
+    margin: 0;
+    letter-spacing: 0.5px;
+}
